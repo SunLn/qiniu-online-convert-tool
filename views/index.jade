@@ -182,3 +182,19 @@ block content
                 div.tile-status
                     span.label Images
 
+        div#wrapper
+            input#token(type=hidden,val='')
+            div#container
+                div.uploader
+                    div.queueList
+                        div#dndArea.placeholder
+                            div#filePicker
+                            p 或将照片拖到这里，单次最多可选300张
+                    div.statusBar(style="display:none")
+                        div.progress
+                            span.text 0%
+                            span.percentage
+                        div.info
+                        div.btns
+                            div#filePicker2
+                            div.uploadBtn 开始上传
