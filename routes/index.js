@@ -9,9 +9,9 @@ qiniu.conf.SECRET_KEY = config.SECRET_KEY;
 
 /* GET home page. */
 router.get('/', function(req, res) {
-    console.log(config.domain);
+    console.log(config.Domain);
     res.render('index', {
-        domain: config.domain,
+        domain: config.Domain,
         uptoken_url: config.Uptoken_Url,
         title: 'Metro UI Blog'
     });

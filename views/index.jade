@@ -5,7 +5,7 @@ block content
         h1.tile-area-title.fg-white Start
         div#wrapper.hidden
             input#token(type='hidden')
-            input#domain(type='hidden')(value= domain)
+            input#domain(type='hidden',value='#{domain}')
 
         div.user-id
             div.user-id-image
@@ -150,17 +150,19 @@ block content
             div.button.mini.info#uploadBtn  开始上传
 
         div.tile-group.double
-            div.tile-group-title Games
+            div.tile-group-title Transfer
+            div.tile.bg-dark
+                div.tile-content.icon
+                    #img(src='/images/Crysis-2-icon.png')
+                    i.icon.icon-share-3
+                div.brand
+                    div.label MD to HTML
             div.tile.bg-dark(data-click="transform")
                 div.tile-content.icon
-                    img(src='/images/Crysis-2-icon.png')
+                    #img(src='/images/Battlefield_4_Icon.png')
+                    i.icon.icon-steering-wheel
                 div.brand
-                    div.label Crysis 2
-            div.tile.bg-dark(data-click="transform")
-                div.tile-content.icon
-                    img(src='/images/Battlefield_4_Icon.png')
-                div.brand
-                    div.label Battlefield 4
+                    div.label DOC to PDF
             div.tile.bg-dark(data-click="transform")
                 div.tile-content.icon
                     img(src='/images/D3.png')
@@ -196,3 +198,17 @@ block content
                     span.label Images
 
 
+        div.tile-group.one
+            div.tile-group-title Contact
+            a.tile.half.bg-darkPink(data-click='transform')
+                div.tile-content.icon
+                    i.icon.icon-github
+            a.tile.half.bg-darkPink(data-click='transform')
+                div.tile-content.icon
+                    i.icon.icon-twitter
+            a.tile.half.bg-darkPink(data-click='transform')
+                div.tile-content.icon
+                    i.icon.icon-facebook
+            a.tile.half.bg-darkPink(data-click='transform')
+                div.tile-content.icon
+                    i.icon.icon-github

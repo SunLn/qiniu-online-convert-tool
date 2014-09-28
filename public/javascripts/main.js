@@ -71,3 +71,20 @@
     });
 
 })(jQuery);
+
+$(function() {
+    $('.icon-share-3').on('click', function() {
+        $.Dialog({
+            overlay: true,
+            shadow: true,
+            flat: true,
+            icon: '<img src="images/excel2013icon.png">',
+            title: 'Markdown To HTML',
+            content: '',
+            onShow: function(_dialog) {
+                var content = _dialog.children('.content');
+                content.html('Set content from event onShow');
+            }
+        });
+    });
+});
