@@ -3,10 +3,10 @@ extends layout
 block content
     div.tile-area.tile-area-dark
         h1.tile-area-title.fg-white Start
-        div#wrapper
+        div#wrapper.hidden
             input#token(type='hidden')
-            div#filePicker
-            div#uploadBtn 开始上传
+            input#domain(type='hidden')(value= domain)
+
         div.user-id
             div.user-id-image
                 span.icon-user.no-display1
@@ -139,6 +139,15 @@ block content
             a.tile.half.bg-darkRed(data-click='transform')
                 div.tile-content.icon
                     img(src='/images/access.png')
+            a.tile.half.bg-darkBlue#uploader
+                div.tile-content.icon#filePicker
+                    i.icon-upload.icon
+            a.tile.bg-darkRed
+                div.data
+                    div.progress-bar.small(data-role="progress-bar" data-value="75")
+                        div.bar.bg-cyan(style="width: 75%;")
+                    span.list-remark Download...75%
+            div.button.mini.info#uploadBtn  开始上传
 
         div.tile-group.double
             div.tile-group-title Games

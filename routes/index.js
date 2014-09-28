@@ -9,6 +9,7 @@ qiniu.conf.SECRET_KEY = config.SECRET_KEY;
 
 /* GET home page. */
 router.get('/', function(req, res) {
+    console.log(config.domain);
     res.render('index', {
         domain: config.domain,
         uptoken_url: config.Uptoken_Url,

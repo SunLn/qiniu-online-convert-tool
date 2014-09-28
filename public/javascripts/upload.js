@@ -5,8 +5,7 @@
 
         var uploader = WebUploader.create({
             pick: {
-                id: '#filePicker',
-                label: '点击选择图片'
+                id: '#filePicker'
             },
             paste: '#uploader',
             chunked: false,
@@ -28,7 +27,6 @@
 
         $.get('/uptoken').success(function(data) {
             $('#token').val(data.uptoken);
-            console.log(token);
             uploader.options.formData.token = data.uptoken
         });
 
@@ -36,21 +34,27 @@
             window.uploader = uploader;
         });
 
-        uploader.onUploadBeforeSend = function(file, data) {
+        uploader.on('uploadBeforeSend', function(file, data) {
             data.key = data.name;
-        };
+        });
 
-        uploader.onUploadProgress = function(file, percentage) {
+        uploader.on('uploadProgress', function(file, percentage) {
 
-        };
+        });
 
-        uploader.onFileQueued = function(file) {
+        uploader.on('fileDequeued', function(file) {
 
-        };
+        });
 
-        uploader.onFileDequeued = function(file) {
+        uploader.on('uploadSuccess', function(file, data) {
+            // $('#' + file.id).find('p.state').text('已上传');
+            console.log(file, data);
+            console.log(data.key)
+        });
 
-        };
+        uploader.on('uploadError', function(file) {
+            // $('#' + file.id).find('p.state').text('上传出错');
+        });
 
         uploader.on('all', function(type) {
 
