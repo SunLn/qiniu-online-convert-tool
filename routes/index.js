@@ -14,7 +14,7 @@ router.get('/', function(req, res) {
     res.render('index', {
         domain: config.Domain,
         uptoken_url: config.Uptoken_Url,
-        title: 'Qiniu Tool in Metro'
+        title: 'Qiniu Simple Tool'
     });
 });
 
@@ -114,5 +114,7 @@ router.post('/doc2pdf', function(req, res, next) {
     });
 
 });
+
+
 
 module.exports = router;

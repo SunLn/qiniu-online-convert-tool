@@ -1,0 +1,22 @@
+div#js-pdf-2-img.span12.bg-white.hide.special-box
+    div.span8.offset2
+        h3  PDF To IMG
+        label.inline-block UPLOAD PDF :
+        div.input-control.text#pdf-box(data-role="input-control")
+            input#pdf-url(type="input",tabindex="-1",style="z-index: 0;")
+            button.btn-file#pdf-file(type="button")
+
+        label PAGE :
+        div.input-control.text.inline-block(data-role="input-control")
+            input.small(type="text",placeholder="",name="pdf-page",value="1")
+            button.btn-clear(tabindex="-1",type="button")
+
+        label IMAGE TYPE :
+        div.input-control.text.inline-block(data-role="input-control")
+            select.small(name="pdf-img-type")
+                option(value="png") png
+                option(value="jpg") jpg
+            //button.btn-clear(tabindex="-1",type="button")
+
+        input#pdf-submit(type="submit",value="Start Convert")
+        a.button.success.offset1.hide(href='#',target="_blank") Success,View Result

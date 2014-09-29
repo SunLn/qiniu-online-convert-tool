@@ -20,6 +20,7 @@ block content
 
         include ./includes/md2html.jade
         include ./includes/doc2pdf.jade
+        include ./includes/pdf2img.jade
 
         //div#js-tile-group-area
         div.tile-group.six
@@ -170,16 +171,11 @@ block content
                     i.icon.icon-steering-wheel
                 div.brand
                     div.label DOC to PDF
-            div.tile.bg-dark(data-click="transform")
+            div.tile.bg-dark.js-pdf2img-btn
                 div.tile-content.icon
                     img(src='/images/D3.png')
                 div.brand
-                    div.label D3.png
-            div.tile.bg-dark(data-click="transform")
-                div.tile-content.icon
-                    img(src='/images/grid2.png')
-                div.brand
-                    div.label Grid 2
+                    div.label PDF to IMG
 
         div.tile-group.double
             div.tile.double(data-click="transform")
