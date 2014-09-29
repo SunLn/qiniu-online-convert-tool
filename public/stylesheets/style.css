@@ -54,8 +54,8 @@ footer {
 
 
 .webuploader-pick {
-    width: 55px;
-    height: 55px;
+    /*width: 24px;*/
+    /*height: 24px;*/
 }
 .webuploader-element-invisible {
     display: none;

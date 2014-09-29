@@ -1,0 +1,28 @@
+div#js-md-2-html.span12.bg-white.hide
+    div.span8.offset2
+        div.bg-darkBlue
+        label.inline-block Upload Markdown :
+        div.input-control.text#upMDBox(data-role="input-control")
+            div
+                input(type="input",tabindex="-1",style="z-index: 0;")
+                button.btn-file#upMD(type="button")
+        div.button.small.info#upMDBtn  开始上传
+
+        label Choose Mode :
+        div.input-control.radio(data-role="input-control")
+            label.inline-block
+                input(type="radio",name="md-mode",checked="",value="0")
+                span.check
+                | Render All
+            label.inline-block.offset1
+                input(type="radio",name="md-mode",value="1")
+                span.check
+                | Only Render Body
+
+
+        label CSS URL :
+        div.input-control.text(data-role="input-control")
+            input(type="text",placeholder="")
+            button.btn-clear(tabindex="-1",type="button")
+
+        input(type="submit",value="Submit")
