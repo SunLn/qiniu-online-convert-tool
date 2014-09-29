@@ -7,16 +7,16 @@ $(function() {
 
         var uploader = Qiniu.uploader({
             runtimes: 'html5,flash', //上传模式,依次退化
-            browse_button: 'upMD', //上传选择的点选按钮，**必需**
+            browse_button: 'md-file', //上传选择的点选按钮，**必需**
             uptoken_url: '/uptoken', //Ajax请求upToken的Url，**强烈建议设置**（服务端提供）
-            unique_names: true, // 默认 false，key为文件名。若开启该选项，SDK会为每个文件自动生成key（文件名）
-            domain: 'http://metro-demo-qiniu.qiniudn.com', //bucket 域名，下载资源时用到，**必需**
-            container: 'upMDBox', //上传区域DOM ID，默认是browser_button的父元素，
+            unique_names: true,
+            domain: 'http://metro-demo-qiniu.qiniudn.com/', //bucket 域名，下载资源时用到，**必需**
+            container: 'md-box', //上传区域DOM ID，默认是browser_button的父元素，
             max_file_size: '100mb', //最大文件体积限制
             flash_swf_url: './js-sdk/Moxie.swf', //引入flash,相对路径
             max_retries: 3, //上传失败最大重试次数
             dragdrop: true, //开启可拖曳上传
-            drop_element: 'upMDBox', //拖曳上传区域元素的ID，拖曳文件或文件夹后可触发上传
+            drop_element: 'md-box', //拖曳上传区域元素的ID，拖曳文件或文件夹后可触发上传
             chunk_size: '4mb',
             auto_start: true,
             filters: {
@@ -42,6 +42,7 @@ $(function() {
                     var res = $.parseJSON(info);
                     var sourceLink = domain + res.key;
                     // 获取上传成功后的文件的Url
+                    $('#md-url').val(sourceLink);
                 },
                 'Error': function(up, err, errTip) {
                     //上传出错时,处理相关的事情
@@ -73,7 +74,18 @@ $(function() {
 
         //     }
         // });
+        $('#md-submit').on('click', function() {
+            $.post('/md2html', {
+                resource: $('#md-url').val(),
+                mode: $('input[name="md-mode"]:checked').val(),
+                css: $('input[name=md-style]').val()
+            }).done(function(data) {
+                console.log(data.resource);
+            }).fail(function() {
 
+            });
+            return false;
+        });
 
 
         $('#upMDBtn').on('click', function() {
