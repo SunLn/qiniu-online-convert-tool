@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-var debug = require('debug')('qiniu-metro-blog');
+var debug = require('debug')('qiniu-online-tool');
 var app = require('../app');
 
 app.set('port', 18080);
