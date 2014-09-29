@@ -1,11 +1,10 @@
-div#js-md-2-html.span12.bg-white.hide
+div#js-md-2-html.span12.bg-white.hide.special-box
     div.span8.offset2
-        div.bg-darkBlue
-        label.inline-block Upload Markdown :
+        h3  Markdown To HTML
+        label.inline-block UPLOAD Markdown:
         div.input-control.text#md-box(data-role="input-control")
             input#md-url(type="input",tabindex="-1",style="z-index: 0;")
             button.btn-file#md-file(type="button")
-        div.button.small.info#md-btn  开始上传
 
         label Choose Mode :
         div.input-control.radio(data-role="input-control")
@@ -24,4 +23,5 @@ div#js-md-2-html.span12.bg-white.hide
             input(type="text",placeholder="",name="md-style",value="http://metro-demo-qiniu.qiniudn.com/css/metro-bootstrap.css")
             button.btn-clear(tabindex="-1",type="button")
 
-        input#md-submit(type="submit",value="Submit")
+        input#md-submit(type="submit",value="Start Convert")
+        a.button.success.hide(href='#',target="_blank") Success,View Result

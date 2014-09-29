@@ -74,4 +74,45 @@ router.post('/md2html', function(req, res, next) {
 
 });
 
+router.post('/doc2pdf', function(req, res, next) {
+
+    var resource = req.param('resource');
+    if (resource == '') {
+        res.json({
+            error: 'invailed args'
+        });
+    }
+    if (resource.indexOf('http://') != -1) {
+        resource = resource.substr(7);
+    }
+    var prefix = 'pdf/';
+    var name = resource.split('/').pop().split('.')[0] + '.pdf';
+    var newKey = prefix + name;
+    var newEntryURI = config.Bucket_Name + ':' + newKey;
+
+    resource = resource + '?odconv/pdf';
+    resource = resource + '|saveas/' + qiniu.util.urlsafeBase64Encode(newEntryURI);
+
+    var sign = qiniu.util.hmacSha1(resource, config.SECRET_KEY)
+    var signUrl = 'http://' + resource + '/sign/' + config.ACCESS_KEY + ':' + qiniu.util.base64ToUrlSafe(sign);
+    var outer_res = res;
+
+    http.get(signUrl, function(res) {
+        console.log("Got response: " + res.statusCode);
+        if (res.statusCode == 200) {
+            outer_res.json({
+                sign: signUrl,
+                resource: config.Domain + '/' + newKey
+            });
+        } else {
+            outer_res.json({
+                ok: 'not ok'
+            });
+        }
+    }).on('error', function(e) {
+        console.log("Got error: " + e.message);
+    });
+
+});
+
 module.exports = router;

@@ -2,12 +2,13 @@ extends layout
 
 block content
     div.tile-area.tile-area-dark
-        h1.tile-area-title.fg-white Start
+        h1.tile-area-title
+            a.fg-white#home(href='#')= title
         div#wrapper.hidden
             input#token(type='hidden')
             input#domain(type='hidden',value='#{domain}')
 
-        div.user-id
+        //div.user-id
             div.user-id-image
                 span.icon-user.no-display1
                 img.no-display(src="/images/Battlefield_4_Icon.png")
@@ -18,7 +19,9 @@ block content
 
 
         include ./includes/md2html.jade
+        include ./includes/doc2pdf.jade
 
+        //div#js-tile-group-area
         div.tile-group.six
             a.tile.double.bg-lightBlue.live(data-role='live-tile',data-effect='slideUp',data-click='transform')
                 div.tile-content.email
@@ -154,14 +157,14 @@ block content
             div.button.mini.info#uploadBtn  开始上传
 
         div.tile-group.double
-            div.tile-group-title Transfer
-            div.tile.bg-dark
+            div.tile-group-title Convert
+            div.tile.bg-dark.js-md2html-btn
                 div.tile-content.icon
                     #img(src='/images/Crysis-2-icon.png')
                     i.icon.icon-share-3
                 div.brand
                     div.label MD to HTML
-            div.tile.bg-dark(data-click="transform")
+            div.tile.bg-dark.js-doc2pdf-btn
                 div.tile-content.icon
                     #img(src='/images/Battlefield_4_Icon.png')
                     i.icon.icon-steering-wheel
@@ -200,7 +203,6 @@ block content
 
                 div.tile-status
                     span.label Images
-
 
         div.tile-group.one
             div.tile-group-title Contact

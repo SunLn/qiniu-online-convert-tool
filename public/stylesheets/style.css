@@ -52,11 +52,15 @@ footer {
 }
 /*docs end*/
 
-
-.webuploader-pick {
-    /*width: 24px;*/
-    /*height: 24px;*/
-}
 .webuploader-element-invisible {
     display: none;
 }
+
+.special-box {
+    padding-top:20px;
+    padding-bottom:40px;
+}
+.special-box a {
+    margin-left: 22px;
+}
+
