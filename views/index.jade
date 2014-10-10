@@ -2,20 +2,11 @@ extends layout
 
 block content
     div.tile-area.tile-area-dark
-        h1.tile-area-title
+        h1.tile-area-title.inline-block
             a.fg-white#home(href='#')= title
         div#wrapper.hidden
             input#token(type='hidden')
             input#domain(type='hidden',value='#{domain}')
-
-        //div.user-id
-            div.user-id-image
-                span.icon-user.no-display1
-                img.no-display(src="/images/Battlefield_4_Icon.png")
-            div.use
-                span.first-name Sergey
-                span.last-name  Pimenov
-
 
 
         include ./includes/md2html.jade
@@ -23,7 +14,7 @@ block content
         include ./includes/pdf2img.jade
 
         //div#js-tile-group-area
-        div.tile-group.six
+        //div.tile-group.six
             a.tile.double.bg-lightBlue.live(data-role='live-tile',data-effect='slideUp',data-click='transform')
                 div.tile-content.email
                     div.email-image
@@ -127,7 +118,7 @@ block content
                 div.brand
                     div.label Store
 
-        div.tile-group.one
+        //div.tile-group.one
             div.tile-group-title Office
             a.tile.half.bg-darkBlue(data-click='transform')
                 div.tile-content.icon
@@ -177,7 +168,7 @@ block content
                 div.brand
                     div.label PDF to IMG
 
-        div.tile-group.double
+        //div.tile-group.double
             div.tile.double(data-click="transform")
                 div.tile-content.image-set
                     img(src='/images/1.jpg')
@@ -202,17 +193,19 @@ block content
 
         div.tile-group.one
             div.tile-group-title Contact
-            a.tile.half.bg-darkPink(data-click='transform')
+            a.tile.half.bg-darkPink(href="https://github.com/SunLn",target="_blank")
                 div.tile-content.icon
                     i.icon.icon-github
-            a.tile.half.bg-darkPink(data-click='transform')
+            a.tile.half.bg-darkPink(href="https://gitcafe.com/SunLn/",target="_blank")
                 div.tile-content.icon
-                    i.icon.icon-twitter
-            a.tile.half.bg-darkPink(data-click='transform')
+                    img(src='/images/gitcafe.png',width="50%")
+
+
+        div.tile-group.one
+            div.tile-group-title Fork
+            a.tile.half.bg-darkPink(href="https://gitcafe.com/SunLn/qiniu-online-tool",target="_blank")
                 div.tile-content.icon
-                    i.icon.icon-facebook
-            a.tile.half.bg-darkPink(data-click='transform')
-                div.tile-content.icon
-                    i.icon.icon-github
+                    img(src='/images/fork.png',width="50%")
+
 
 

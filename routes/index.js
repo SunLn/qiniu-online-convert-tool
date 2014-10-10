@@ -14,7 +14,7 @@ router.get('/', function(req, res) {
     res.render('index', {
         domain: config.Domain,
         uptoken_url: config.Uptoken_Url,
-        title: 'Qiniu Simple Tool'
+        title: 'Simple Convert Tool'
     });
 });
 
